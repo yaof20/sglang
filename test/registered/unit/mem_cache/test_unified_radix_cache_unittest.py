@@ -1177,7 +1177,9 @@ class UnifiedRadixCacheSuite:
 
         swa_component = tree.components[ComponentType.SWA]
         tracker = {ct: 0 for ct in tree.tree_components}
-        tree._evict_component_and_detach_lru(prefix_node, swa_component, tracker=tracker)
+        tree._evict_component_and_detach_lru(
+            prefix_node, swa_component, tracker=tracker
+        )
         self.assertIsNone(prefix_node.component_data[ComponentType.SWA].value)
 
         req = self._make_req(req_to_token_pool)

@@ -1373,7 +1373,9 @@ class UnifiedRadixCache(KVCacheEventMixin, BasePrefixCache):
         accepted_len: int,
         accepted_node: UnifiedTreeNode,
     ) -> None:
-        for start_len, parent, child_key in reversed(insert_params.created_node_records):
+        for start_len, parent, child_key in reversed(
+            insert_params.created_node_records
+        ):
             root = parent.children.get(child_key)
             if root is None:
                 continue
